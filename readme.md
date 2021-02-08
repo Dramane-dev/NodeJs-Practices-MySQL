@@ -31,7 +31,7 @@ L'application est Composé d'un dossier :
 
 ## Installation
 
-Pour pouvoir lancer le projet il faut vous rendre dans chacun des dossier et executer les commandes suivantes dans votre terminal en veillant à vous situer dans le bon chemin 😉 :
+Pour pouvoir lancer le projet il faut vous rendre dans le dossier et executer la commande suivante dans votre terminal en veillant à vous situer dans le bon chemin 😉 :
 
 ```bash
 cd MYSQL && npm i && nodemon start
