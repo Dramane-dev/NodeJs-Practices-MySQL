@@ -2,7 +2,7 @@
 
 Mini CRUD APP avec MYSQL 📜
 
-![alt text](https://github.com/Dramane-dev/SpaceX-API-Apollo-GraphQL/blob/origin/NodeJs-MySQL-img.png?raw=true)
+![alt text](https://github.com/Dramane-dev/NodeJs-Practices-MySQL/blob/master/NodeJs-MySQL-img.png?raw=true)
 
 
 
