@@ -2,7 +2,7 @@
 
 Mini CRUD APP avec MYSQL 📜
 
-![alt text](https://github.com/Dramane-dev/NodeJs-Practices-MySQL/blob/master/NodeJs-MySQL-img.png?raw=true)
+![alt text](https://github.com/Dramane-dev/NodeJs-Practices-MySQL/blob/main/NodeJs-MySQL-img.png?raw=true)
 
 
 ## Features
