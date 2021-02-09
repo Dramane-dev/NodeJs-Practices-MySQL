@@ -8,4 +8,7 @@ module.exports = (app) => {
 
   // All of my Tasks
   app.get('/tasks', TasksController.findAll);
+
+  // Get Task by id 
+  app.get('/task/:id', TasksController.findById);
 }
