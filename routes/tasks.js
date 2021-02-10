@@ -11,4 +11,7 @@ module.exports = (app) => {
 
   // Get Task by id 
   app.get('/task/:id', TasksController.findById);
+
+  // Create Task
+  app.post('/task', TasksController.createTask);
 }

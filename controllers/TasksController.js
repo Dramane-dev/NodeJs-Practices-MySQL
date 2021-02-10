@@ -20,5 +20,25 @@ module.exports = {
                     }));
                 }
             });
+    },
+    createTask(req, res) {
+        const body = req.body;
+        if (body.nom === '' || body.date === '') {
+            res.status(400).send(error({
+                message: `This value cannot be empty`
+            }));
+        }
+
+        const task = new Task({
+            nom: body.nom,
+            date: body.date
+        });
+
+        // Save Task in db 
+        task.save()
+            .then(task => res.send(success(task)) && console.log(`Task ${task.nom} created successfuly ✅`))
+            .catch(err => res.status(500).send(error({
+                message: `The task ${task.nom} cannot be created ❌ !`
+            })));
     }
 }
