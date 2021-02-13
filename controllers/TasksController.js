@@ -63,7 +63,7 @@ module.exports = {
                 }));
             }
             res.send({
-                message: 'Data upadated successfuly ✅ ! '
+                message: 'Task upadated successfuly ✅ ! '
             });
         })
         .catch(err => {
@@ -76,30 +76,27 @@ module.exports = {
     },
     async deleteTask(req, res) {
         const id = req.params.id;
-        
-        const task = await Task.findOne({
+
+        Task.destroy({
             where: {
                 id: id
             }
         })
-
-        if (task == null) {
-            res.send(error({
-                message: `Cannot delete your task with id = ${id} ❌. Maybe this task does not exist ..`
-            }));
-        } else {
-            task.destroy()
-                .then(() => {
-                    res.status(200).send(success('Deleted Successfuly') && console.log(`Task : ${task.nom} deleted successfuly ✅`))
-                })
-                .catch(err => {
-                    if (err) {
-                        return res.status(404).send(error({
-                            message: `The task with id ${id} not found ❌ ...`
-                        }));
-                    }
-                })
-        }
-
+        .then(task => {
+            if (task < 1) {
+                return res.send(error({
+                    message: `Cannot deleted task ❌ ! Verify this id. Maybe this task does not exist ? `
+                })); 
+            }
+            res.send({
+                message: 'Task Deleted successfuly ✅ ! '
+            });
+        }).catch(err => {
+            if (err) {
+                return res.send(error({
+                    message: err
+                }));
+            }
+        })
     }
 }
