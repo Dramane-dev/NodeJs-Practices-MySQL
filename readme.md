@@ -25,7 +25,7 @@ Mini CRUD APP avec MYSQL 📜
 
 L'application est Composé d'un dossier :
 
-- `MYSQL`: Start le server 🚀 ✅
+- `MYSQL`: Start le server MySQL 🚀 ✅
 
 
 ## Installation
@@ -33,5 +33,5 @@ L'application est Composé d'un dossier :
 Pour pouvoir lancer le projet il faut vous rendre dans le dossier et executer la commande suivante dans votre terminal en veillant à vous situer dans le bon chemin 😉 :
 
 ```bash
-cd MYSQL && npm i && nodemon start
+cd MYSQL && npm i && nodemon server.js
 ```
