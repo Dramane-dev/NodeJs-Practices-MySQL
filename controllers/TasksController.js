@@ -37,8 +37,69 @@ module.exports = {
         // Save Task in db 
         task.save()
             .then(task => res.send(success(task)) && console.log(`Task ${task.nom} created successfuly ✅`))
-            .catch(err => res.status(500).send(error({
-                message: `The task ${task.nom} cannot be created ❌ !`
-            })));
+            .catch(err => {
+                if (err) {
+                    res.status(500).send(error({
+                        message: `The task ${task.nom} cannot be created ❌ !`
+                    }));
+                }
+            });
+    },
+    updateTask(req, res) {
+        // Get id and body 
+        const id = req.params.id;
+        const body = req.body;
+
+        Task.update(body, {
+            where: {
+                id: id
+            }
+        })
+        .then(task => {
+            // task bigger than 1 if value is different to value in database 
+            if (task < 1) {
+                return res.send(error({
+                    message: `Cannot upadated task ❌ Verify this id. The value cannot be empty or same !`
+                }));
+            }
+            res.send({
+                message: 'Data upadated successfuly ✅ ! '
+            });
+        })
+        .catch(err => {
+            if (err) {
+                return res.status(404).send(error({
+                    message: `The task with id ${id} not found ❌ ...`
+                }));
+            }
+        })
+    },
+    async deleteTask(req, res) {
+        const id = req.params.id;
+        
+        const task = await Task.findOne({
+            where: {
+                id: id
+            }
+        })
+
+        if (task == null) {
+            res.send(error({
+                message: `Cannot delete your task with id = ${id} ❌. Maybe this task does not exist ..`
+            }));
+        } else {
+            task.destroy()
+                .then(() => {
+                    res.status(200).send(success('Deleted Successfuly') && console.log(`Task : ${task.nom} deleted successfuly ✅`))
+                })
+                .catch(err => {
+                    if (err) {
+                        return res.status(404).send(error({
+                            message: `The task with id ${id} not found ❌ ...`
+                        }));
+                    }
+                })
+        }
+
     }
 }
