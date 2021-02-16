@@ -2,7 +2,11 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const  app = express();
+const cors = require('cors')
 const { json } = require('body-parser');
+
+// Cors 
+app.use(cors());
 
 // sequelize 
 const db = require('./config/db');
