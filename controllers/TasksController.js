@@ -36,7 +36,7 @@ module.exports = {
 
         // Save Task in db 
         task.save()
-            .then(task => res.send(success(task)) && console.log(`Task ${task.nom} created successfuly ✅`))
+            .then(task => res.send(success(task)))
             .catch(err => {
                 if (err) {
                     res.status(500).send(error({
@@ -74,7 +74,7 @@ module.exports = {
             }
         })
     },
-    async deleteTask(req, res) {
+    deleteTask(req, res) {
         const id = req.params.id;
 
         Task.destroy({

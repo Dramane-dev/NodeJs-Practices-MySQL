@@ -1,4 +1,4 @@
-# CRUD APP MYSQL  
+# CRUD APP MYSQL
 
 Mini CRUD APP avec MYSQL 📜
 
